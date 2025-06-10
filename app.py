@@ -70,7 +70,6 @@ st.subheader(f"{instrument} Price")
 st.success(f"💰 Price: ${pricer.price():,.2f}")
 
 # --- Optional Plots ---
-st.markdown("Show Risk Report")
 if st.button("Generate Risk Report"):
     with st.spinner("Computing Sensitivities..."):
         
