@@ -29,19 +29,29 @@ Built for use in credit strategy roles at hedge funds, trading desks, or risk te
 
 ## 📁 Project Structure
 
-credit-pricer/
+credit_toolkit/
 │
-├── credit_tools/ # Core modules
-│ ├── cds_pricer.py # CDS pricing logic
-│ ├── trs_pricer.py # TRS pricing logic
-│ ├── discount_curve.py # Build and interpolate discount curves
-│ ├── market_data.py # Market data handling
-│ ├── scenario_analysis.py# Scenario simulation engine
-│ └── init.py
+├── pricers/
+│   ├── cds_pricer.py
+│   ├── index_cds_pricer.py
+│   ├── trs_pricer.py
+│   └── credit_option_pricer.py
 │
-├── data/ # Placeholder for yield/CDS data files
+├── analytics/
+│   ├── curve_construction.py
+│   ├── scenario_analysis.py
+│   ├── sensitivity.py
+│   └── pnl_tracker.py
 │
-├── notebooks/ # Jupyter notebooks for testing and analysis
+├── data/
+│   └── market_data.py
 │
-├── .gitignore # Ignored files and folders
+├── strategy/
+│   └── backtester.py
+│
+├── visualizations/
+│   ├── risk_report_plot.py
+│   └── pnl_plot.py
+│
+├── app.py   # Front CLI or Streamlit dashboard
 └── README.md # You are here

@@ -125,36 +125,36 @@ if st.checkbox("Show Simulated PnL Series"):
     fig = plot_pnl_series(pnl_series)
     st.pyplot(fig)
 
-if st.checkbox("Run Backtest Simulation"):
-    # Prepare config from UI
-    md = MarketDataProvider()
-    base_config = {
-        "notional": notional,
-        "maturity": maturity,
-        "recovery_rate": 0.4,
-    }
+# if st.checkbox("Run Backtest Simulation"):
+#     # Prepare config from UI
+#     md = MarketDataProvider()
+#     base_config = {
+#         "notional": notional,
+#         "maturity": maturity,
+#         "recovery_rate": 0.4,
+#     }
 
-    if instrument == "CDS":
-        pricer_cls = CDSPricer
-        base_config["spread"] = spread
-    elif instrument == "Index CDS":
-        pricer_cls = IndexCDSPricer
-        base_config["num_names"] = num_names
-        base_config["defaulted_names"] = defaulted_names
-    elif instrument == "TRS":
-        pricer_cls = TRSPricer
-        base_config["coupon_rate"] = coupon_rate
-        base_config["spread"] = spread
-    elif instrument == "Credit Option":
-        pricer_cls = CreditOptionPricer
-        base_config.update({
-            "strike": strike,
-            "volatility": volatility,
-            "option_type": option_type,
-            "cds_maturity": cds_maturity,
-            "spread": spread
-        })
+#     if instrument == "CDS":
+#         pricer_cls = CDSPricer
+#         base_config["spread"] = spread
+#     elif instrument == "Index CDS":
+#         pricer_cls = IndexCDSPricer
+#         base_config["num_names"] = num_names
+#         base_config["defaulted_names"] = defaulted_names
+#     elif instrument == "TRS":
+#         pricer_cls = TRSPricer
+#         base_config["coupon_rate"] = coupon_rate
+#         base_config["spread"] = spread
+#     elif instrument == "Credit Option":
+#         pricer_cls = CreditOptionPricer
+#         base_config.update({
+#             "strike": strike,
+#             "volatility": volatility,
+#             "option_type": option_type,
+#             "cds_maturity": cds_maturity,
+#             "spread": spread
+#         })
 
-    pnl_series = run_ui_backtest(pricer_cls, md, None, base_config)
-    fig = plot_pnl_series(pnl_series)
-    st.pyplot(fig)
+#     pnl_series = run_ui_backtest(pricer_cls, md, None, base_config)
+#     fig = plot_pnl_series(pnl_series)
+#     st.pyplot(fig)
